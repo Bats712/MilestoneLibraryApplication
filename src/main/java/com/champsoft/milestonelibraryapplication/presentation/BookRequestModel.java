@@ -11,5 +11,5 @@ public class BookRequestModel {
     private Long BookID;
     private String BookTitle;
     private String BookAuthor;
-    private String BookISBN;
+private int releaseYear;
 }

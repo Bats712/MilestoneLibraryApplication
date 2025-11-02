@@ -11,9 +11,9 @@ import lombok.Setter;
 @Setter
 
 public class BookResponseModel {
-    private String bookID;
+    private Long bookID;
     private String bookTitle;
     private String bookAuthor;
-
+    private int releaseYear;
 
 }

@@ -1,5 +1,6 @@
 package com.champsoft.milestonelibraryapplication.datalayer;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,21 +17,29 @@ import lombok.Setter;
 
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long BookID;
+
+    @Column(name="book")
     private String bookTitle;
-    private String Author;
+    private String authorName;
     private int releaseYear;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_authorid")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Author author;
 
-    public Book(String bookTitle, String Author, int releaseYear, Author author) {
+
+    public Book(String bookTitle, String Author, int releaseYear) {
         this.bookTitle = bookTitle;
-        this.Author = Author;
+        this.authorName = Author;
         this.releaseYear = releaseYear;
-        this.author = author;
+
         
+    }
+
+    public void setAuthor(String bookAuthor) {
+
     }
 }
