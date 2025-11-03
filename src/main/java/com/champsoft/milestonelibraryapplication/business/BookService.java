@@ -29,7 +29,7 @@ public BookService(BookRepository bookRepository, AuthorRepository authorReposit
     this.bookMapper = bookMapper;
     this.authorMapper = authorMapper;
 }
-public List<Book> getAllBooks() {
+public List<BookResponseModel> getAllBooks() {
     List<Book> books = bookRepository.findAll();
     List<BookResponseModel> bookResponseModels = new ArrayList<>();
     for (Book book : books) {
@@ -68,8 +68,8 @@ public void deleteBookById(int BookID) throws BookNotFoundException {
     bookRepository.delete(book);
 }
 
-public List<BookResponseModel> getBooksByAuthor(String author) {
-    Book book = bookRepository.findById(author).orElseThrow(() -> new RuntimeException("Books not found"));
+public List<BookResponseModel> getBooksByAuthor(long BookID, String author) {
+    Book book = bookRepository.findById(BookID).orElseThrow(() -> new RuntimeException("Books not found"));
 
     List<Book> books = bookRepository.findAll();
     List<BookResponseModel> bookResponseModels = new ArrayList<>();

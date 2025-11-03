@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
         public BookResponseModel toResponse(Book book){
             return new BookResponseModel(
-                    book.getId(),
+                    book.getBookID(),
                     book.getBookTitle(),
                     book.getAuthorName(),
                     book.getReleaseYear()
@@ -24,8 +24,4 @@ import org.springframework.stereotype.Component;
             book.setReleaseYear(bookRequestModel.getReleaseYear());
             return book;
         }
-
-
     }
-
-
