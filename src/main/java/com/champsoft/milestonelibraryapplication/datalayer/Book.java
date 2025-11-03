@@ -31,11 +31,11 @@ public class Book {
     private Author author;
 
 
-    public Book(String bookTitle, String Author, int releaseYear) {
+    public Book(String bookTitle, String Author, int releaseYear, Author author) {
         this.bookTitle = bookTitle;
         this.authorName = Author;
         this.releaseYear = releaseYear;
-
+        this.author = author;
         
     }
 
