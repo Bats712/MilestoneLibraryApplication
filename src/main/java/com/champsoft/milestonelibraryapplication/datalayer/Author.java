@@ -13,14 +13,15 @@ import lombok.NoArgsConstructor;
 @Setter
 
 public class Author {
-@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long AuthorID;
+
     private String firstName,lastName, bookTitle;
 
     public Author(String firstName, String lastName, String bookTitle) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.bookTitle = bookTitle;
+       
     }
 }

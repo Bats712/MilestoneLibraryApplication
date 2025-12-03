@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/authors")
-@CrossOrigin(origins = "*")
 public class AuthorController {
 
     private final AuthorService authorService;

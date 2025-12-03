@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
-@CrossOrigin(origins = "*")
 public class BookController {
 
     private final BookService bookService;
@@ -21,6 +20,11 @@ public class BookController {
     public BookController(BookService bookService)
     {
         this.bookService = bookService;
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello from Spring Boot!";
     }
 
     @GetMapping
